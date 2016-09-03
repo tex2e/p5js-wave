@@ -46,11 +46,13 @@ function draw() {
   background(200);
   translate(Cell.cellSize / 2, Cell.cellSize / 2);
 
+  // calculate next state of all cells
   for (var x = 0; x < cellNumX; x++) {
     for (var y = 0; y < cellNumY; y++) {
       cells[x][y].calcNextState();
     }
   }
+  // draw all cells
   for (var x = 0; x < cellNumX; x++) {
     for (var y = 0; y < cellNumY; y++) {
       cells[x][y].drawMe();
@@ -62,6 +64,7 @@ function draw() {
   var randY = Math.floor(random(0, height / Cell.cellSize))
   cells[randX][randY].state = 255;
 
+  // activate cell if mouse is pressed
   if (mouseIsPressed) {
     mousePressed();
   }
